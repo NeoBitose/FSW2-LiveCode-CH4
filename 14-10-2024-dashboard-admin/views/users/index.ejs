@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/index.css">
+</head>
+<body>
+    
+</body>
+</html>
+<form action="" method="post"></form>
+<table border="1" cellSpacing="0" cellPadding="10">
+    <tr>
+        <th>name</th>
+        <th>photo profiel</th>
+        <th>age</th>
+        <th>phone number</th>
+    </tr>
+    <% users.map((user) => { %>
+        <tr>
+            <td><%= user.firstName %></td>
+            <td><%= user.photoProfile %></td>
+            <td><%= user.age %></td>
+            <td><%= user.phoneNumber %></td>
+        </tr>
+    <% }) %>
+</table>
