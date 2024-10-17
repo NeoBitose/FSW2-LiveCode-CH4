@@ -1,0 +1,16 @@
+<table border="1" cellSpacing="0" cellPadding="10">
+    <tr>
+        <th>name</th>
+        <th>photo profiel</th>
+        <th>age</th>
+        <th>phone number</th>
+    </tr>
+    <% users.map((user) => { %>
+        <tr>
+            <td><%= user.firstName %></td>
+            <td><img src="<%= user.photoProfile %>" alt=""></td>
+            <td><%= user.age %></td>
+            <td><%= user.phoneNumber %></td>
+        </tr>
+    <% }) %>
+</table>
