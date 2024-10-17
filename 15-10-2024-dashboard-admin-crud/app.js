@@ -48,16 +48,6 @@ app.set("view engine", "ejs");
 app.use(expressEjsLayout);
 app.set("layout", "layout");
 
-app.get("/dashboard/admin", async (req, res) => {
-  try {
-    res.render("index", {
-      greeting: "Hello FSW 2"
-    })
-  } catch (error) {
-    console.log(error)
-  }
-});
-
 // Health Check
 app.get("/", async (req, res) => {
   try {
@@ -86,12 +76,6 @@ app.use("/admin", dashboardRoutes);
 
 // Middleware to handle page not found
 app.use((req, res, next) => {
-  // console.log("proses yang request")
-  // console.log(req.requestTime)
-  // console.log("proses yang request")
-  // console.log(req.username)
-  // console.log("proses yang request")
-  // console.log(req.originalUrl)
   res.status(404).json({
     status: "Failed",
     message: "API not found !",

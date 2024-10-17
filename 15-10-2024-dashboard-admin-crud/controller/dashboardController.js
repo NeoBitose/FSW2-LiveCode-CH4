@@ -48,18 +48,26 @@ async function insertUser(req, res) {
     
         console.log(uploadedImage)
 
-        await User.create({...newUser});
-        res.redirect("admin/dashboard")
+        try {
+            await User.create({...newUser, photoProfile: uploadedImage.url});
+            res.redirect("/admin/dashboard")
+        } catch (error) {
+            res.render("error", {
+                message: error.message
+            })
+        }
+    }
+    else{
+        try {
+            await User.create({...newUser});
+            res.redirect("/admin/dashboard")
+        } catch (error) {
+            res.render("error", {
+                message: error.message
+            })
+        }
     }
 
-    try {
-        await User.create({...newUser});
-        res.redirect("admin/dashboard")
-    } catch (error) {
-        res.render("error", {
-            message: error.message
-        })
-    }
 }
 
 module.exports = {
